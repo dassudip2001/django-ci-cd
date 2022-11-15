@@ -1,46 +1,23 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: myapp
-# spec:
-#   selector:
-#     matchLabels:
-#       app: myapp
-#   template:
-#     metadata:
-#       labels:
-#         app: myapp
-#     spec:
-#       containers:
-#       - name: myapp
-#         image: <Image>
-#         resources:
-#           limits:
-#             memory: "128Mi"
-#             cpu: "500m"
-#         ports:
-#         - containerPort: <Port>
-
-
-# ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  labels:
-    app: nginx
+  name: todo-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: todo-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: todo-app
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: todoapp
+        image: sudipdas2001/todoapp
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
         ports:
-        - containerPort: 80
+        - containerPort: 8000
