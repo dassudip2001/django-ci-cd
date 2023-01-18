@@ -1,0 +1,16 @@
+version: '3'
+services:
+    mysql:
+    image: mysql:latest
+    restart: always
+    port:
+      - 3306:3306
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: blog
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password        
+volumes:
+  mysql

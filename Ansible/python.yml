@@ -1,0 +1,9 @@
+--- # install the python3
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh 
+  gather_facts: yes 
+  tasks:
+      - name: install python on ubuntu
+        action: yum name=httpd state=installed
