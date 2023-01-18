@@ -1,23 +1,41 @@
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
-  name: todo-deployment
+
+  name: todo-app-deployment
+
+  labels:
+
+    app: todo-app
+
 spec:
+
   replicas: 3
+
   selector:
+
     matchLabels:
+
       app: todo-app
+
   template:
+
     metadata:
+
       labels:
+
         app: todo-app
+
     spec:
+
       containers:
-      - name: todoapp
+
+      - name: todo-app
+
         image: sudipdas2001/todoapp
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+
         ports:
         - containerPort: 8000
+
